@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const BoardItemBlock = styled.div`
@@ -9,10 +10,9 @@ const BoardItemBlock = styled.div`
 
     h2 {
       margin: 0;
-    }
-
-    a {
-      color: black;
+      cursor: pointer;
+      border-bottom: 1px solid grey;
+      padding-bottom: 1px;
     }
 
     p {
@@ -29,17 +29,18 @@ const BoardItemBlock = styled.div`
   }
 `;
 
-const BoardItem = ({ posts }) => {
-  const { title, content, url } = posts;
+const BoardItem = ({ title, postID }) => {
+  const navigate = useNavigate();
+
+  const goPost = () => {
+    // navigate(`${'/post/' + postID}`);
+    navigate(`/post/${postID}`);
+  };
   return (
     <BoardItemBlock>
       <div className="contents">
-        <h2>
-          <a href={url} target="_blank" rel="noopener noreferrer">
-            {title}
-          </a>
-        </h2>
-        <p>{content}</p>
+        <h2 onClick={goPost}>{title}</h2>
+        <p>자세한 내용은 제목 클릭!</p>
       </div>
     </BoardItemBlock>
   );
