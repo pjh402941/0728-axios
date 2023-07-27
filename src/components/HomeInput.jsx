@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
 const InputDiv = styled.div`
-  text-align: center;
   margin: 20px 0;
+  text-align: center;
 
   input {
     width: 80%;
