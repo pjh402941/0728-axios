@@ -3,13 +3,18 @@ import styled from 'styled-components';
 
 const BoardItemBlock = styled.div`
   display: flex;
+
   .contents {
+    margin: 0 auto;
+
     h2 {
       margin: 0;
     }
+
     a {
       color: black;
     }
+
     p {
       margin: 0;
       line-height: 1.5;
