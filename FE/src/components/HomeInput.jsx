@@ -64,72 +64,15 @@ const InputDiv = styled.div`
   }
 `;
 
-const HomeInput = ({ postList, setPostList }) => {
-  const [inputs, setInputs] = useState({
-    title: '',
-    content: '',
-  });
-
-  const { title, content } = inputs;
-
-  const onChange = (e) => {
-    const { value, name } = e.target;
-    setInputs({
-      ...inputs,
-      [name]: value,
-    });
-  };
-
-  const onSubmit = () => {
-    // 새로운 게시물 객체 생성
-    const newPost = {
-      postID: postList.length + 1, // 현재 게시물 개수 + 1로 ID 생성 (임시로 사용)
-      title: title,
-      content: content,
-    };
-
-    // 기존의 게시물 목록에 새로운 게시물 추가
-    setPostList([...postList, newPost]);
-
-    // 입력값 초기화
-    setInputs({
-      title: '',
-      content: '',
-    });
-  };
-
-  //   const onSubmit = () => {
-  //     axios
-  //       .post(`${apiUrl}/posts/`, {
-  //         title: inputs.title,
-  //         contents: inputs.contents,
-  //         repls: [],
-  //       })
-  //       .then(() => {
-  //         navigate("../");
-  //       });
-  //   };
-
+const HomeInput = () => {
   return (
     <>
       <InputDiv>
-        <input
-          className="inputTitle"
-          name="title"
-          value={title}
-          onChange={onChange}
-        />
-        <textarea
-          className="inputContent"
-          name="content"
-          value={content}
-          onChange={onChange}
-        />
-        <div className="submit" onClick={onSubmit}>
-          저장
-        </div>
+        <input className="inputTitle" />
+        <textarea className="inputContent" />
+        <div className="submit">저장</div>
       </InputDiv>
-      <BoardList postList={postList} title={title} content={content} />
+      <BoardList />
     </>
   );
 };
