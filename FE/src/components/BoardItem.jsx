@@ -35,6 +35,7 @@ const BoardItem = ({ title, postID }) => {
   const goPost = () => {
     navigate(`/post/${postID}`);
   };
+
   return (
     <BoardItemBlock>
       <div className="contents">
